@@ -38,7 +38,7 @@ body {
   .inpt {
     padding: 20px 15px;
     background-color: white;
-    height: 150px;
+    height: 80px;
 
     .wrap {
       width: 100%;
@@ -75,5 +75,11 @@ body {
 }
 
 .lst {
-  padding: 5px;
+  div {
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    height: 75px;
+    border-radius: 26px;
+  }
 }
