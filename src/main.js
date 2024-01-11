@@ -5,7 +5,11 @@ const todoList = document.getElementById('todo-list');
 let listItems = [];
 
 submitBtn.addEventListener('click', () => {
-  paintTodo(todoInput.value);
+  if (todoInput.value.trim() == '') {
+    alert('할 일을 입력해주세요.');
+  } else {
+    paintTodo(todoInput.value);
+  }
 });
 
 function deleteTodo(event) {
