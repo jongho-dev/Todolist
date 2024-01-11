@@ -22,8 +22,11 @@ submitBtn.addEventListener('click', () => {
 function paintTodo(text) {
   const li = document.createElement('li');
   const span = document.createElement('span');
+  const btn = document.createElement('button');
   span.innerHTML = text;
+  btn.innerHTML = 'X';
   li.appendChild(span);
+  li.appendChild(btn);
   todoList.appendChild(li);
 
   const obj = {

@@ -75,11 +75,23 @@ body {
 }
 
 .lst {
-  div {
+  li {
+    display: flex;
+    justify-content: space-between;
     background-color: white;
     margin: 10px;
-    padding: 10px;
-    height: 75px;
+    padding: 10px 15px;
+    height: 55px;
     border-radius: 26px;
+    align-items: center;
+
+    button {
+      color: red;
+      background: none;
+      font-weight: 600;
+      border: 2px solid red;
+      border-radius: 20px;
+      padding: 5px 7px;
+    }
   }
 }
