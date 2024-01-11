@@ -1,25 +1,46 @@
 const todoInput = document.getElementById('todo-input');
 const submitBtn = document.getElementById('submit-btn');
+const todoList = document.getElementById('todo-list');
 
-const lst1 = document.querySelector('.lst1');
-const keys = Object.keys(window.localStorage);
-console.log(keys);
-console.log(keys.includes('todo'));
-if (keys.includes('todo')) {
-  const getdata = localStorage.getItem('todo');
-  lst1.innerHTML = getdata;
-} else {
-  const getdata = [];
-  localStorage.setItem('todo', getdata);
+let listItems = [];
+
+function saveItems() {
+  const obj = {
+    title: todoInput.value,
+  };
+  const json = JSON.stringify(obj);
+  console.log(json);
+  items.push(json);
+  console.log(items);
+  localStorage.setItem('todo', items);
 }
+
 submitBtn.addEventListener('click', () => {
-  console.log('click');
-  if (todoInput.value.trim() == '') {
-    alert('할 일을 입력해주세요.');
-  } else {
-    getdata.append(todoInput.value);
-    localStorage.setItem('todo', getdata);
-  }
+  paintTodo(todoInput.value);
 });
 
-localStorage.clear();
+function paintTodo(text) {
+  const li = document.createElement('li');
+  const span = document.createElement('span');
+  span.innerHTML = text;
+  li.appendChild(span);
+  todoList.appendChild(li);
+
+  const obj = {
+    text,
+  };
+  listItems.push(obj);
+  localStorage.setItem('todo', JSON.stringify(listItems));
+}
+
+function load() {
+  const loadedTodos = localStorage.getItem('todo');
+  if (loadedTodos != null) {
+    const parsedTodos = JSON.parse(loadedTodos);
+    parsedTodos.forEach((toDo) => {
+      paintTodo(toDo.text);
+    });
+  }
+}
+
+load();
