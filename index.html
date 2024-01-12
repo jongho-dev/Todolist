@@ -5,22 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todolist</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Klee+One&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="main">
-      <div class="inpt">
+    <div class="container">
+      <div class="top">
         <form>
-          <div class="wrap">
-            <input
-              id="todo-input"
-              type="text"
-              placeholder="ADD TODO HERE . ."
-            />
-            <button id="submit-btn">+</button>
-          </div>
+          <input id="todo-input" type="text" placeholder="ADD TODO HERE . ." />
+          <button id="submit-btn">+</button>
         </form>
       </div>
-      <div class="lst">
+      <div class="bottom">
+        <div>YOUR TODOS</div>
         <ul id="todo-list"></ul>
       </div>
     </div>
