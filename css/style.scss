@@ -24,8 +24,8 @@ body {
   box-shadow: 0px 0px 20px 20px rgba(0, 0, 0, 0.1);
 
   .top {
-    height: 100px;
-    padding: 30px 30px;
+    height: 95px;
+    padding: 28px 30px 27px 30px;
     border-bottom: 2px dotted rgb(220, 91, 136);
 
     form {
@@ -67,8 +67,8 @@ body {
     font-family: 'IBM Plex Sans KR', sans-serif;
     display: flex;
     flex-direction: row;
-    padding: 15px 20px;
-    height: 80%;
+    padding: 11px 5px 6px 5px;
+    height: 500px;
 
     div {
       background-color: rgba(190, 190, 190, 0.3);
@@ -76,14 +76,18 @@ body {
       font-size: 14px;
       color: rgba(100, 100, 100, 0.8);
       padding: 10px 7px;
-      margin: 10px;
-      width: 32%;
-      height: 100%;
+      margin: 4px;
+      width: 33%;
+      height: 480px;
       border-radius: 8px;
     }
 
     .title {
       padding-left: 4px;
+    }
+
+    ul {
+      margin-top: 7px;
     }
     li {
       background-color: white;
@@ -92,7 +96,7 @@ body {
       display: flex;
       justify-content: space-between;
       padding: 8px 10px;
-      margin: 10px 0;
+      margin: 5px 0 0 0;
       height: 70px;
       border-radius: 8px;
       border: 1px solid rgba(200, 200, 200, 0.6);
