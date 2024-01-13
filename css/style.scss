@@ -82,9 +82,12 @@ body {
       border-radius: 8px;
     }
 
+    .title {
+      padding-left: 4px;
+    }
     li {
       background-color: white;
-      font-size: 14px;
+      font-size: 15px;
       color: black;
       display: flex;
       justify-content: space-between;
