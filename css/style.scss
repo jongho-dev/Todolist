@@ -64,6 +64,7 @@ body {
   }
 
   .bottom {
+    font-family: 'IBM Plex Sans KR', sans-serif;
     display: flex;
     flex-direction: row;
     padding: 15px 20px;
@@ -72,8 +73,8 @@ body {
     div {
       background-color: rgba(190, 190, 190, 0.3);
 
-      font-size: 19px;
-      padding: 10px;
+      font-size: 18px;
+      padding: 10px 15px;
       margin: 10px;
       width: 32%;
       height: 100%;
@@ -81,6 +82,7 @@ body {
     }
 
     li {
+      font-size: 17px;
       color: black;
       display: flex;
       justify-content: space-between;
