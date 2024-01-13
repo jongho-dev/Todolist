@@ -73,7 +73,8 @@ body {
     div {
       background-color: rgba(190, 190, 190, 0.3);
 
-      font-size: 18px;
+      font-size: 14px;
+      color: rgba(100, 100, 100, 0.8);
       padding: 10px 7px;
       margin: 10px;
       width: 32%;
@@ -83,11 +84,11 @@ body {
 
     li {
       background-color: white;
-      font-size: 17px;
+      font-size: 14px;
       color: black;
       display: flex;
       justify-content: space-between;
-      padding: 6px 8px;
+      padding: 8px 10px;
       margin: 10px 0;
       height: 70px;
       border-radius: 8px;
