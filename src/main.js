@@ -14,7 +14,7 @@ submitBtn.addEventListener('click', () => {
 
 function deleteTodo(event) {
   const btn = event.target;
-  const li = btn.parentNode;
+  const li = btn.parentNode.parentNode;
   todoList.removeChild(li);
   const filterItems = listItems.filter((toDo) => {
     return toDo.id != parseInt(li.id);
@@ -26,13 +26,15 @@ function deleteTodo(event) {
 function paintTodo(text) {
   const li = document.createElement('li');
   const span = document.createElement('span');
+  const div2 = document.createElement('div');
   const btn = document.createElement('button');
   const newId = listItems.length + 1;
   span.innerHTML = text;
   btn.innerHTML = 'X';
   btn.addEventListener('click', deleteTodo);
   li.appendChild(span);
-  li.appendChild(btn);
+  li.appendChild(div2);
+  div2.appendChild(btn);
   li.id = newId;
   todoList.appendChild(li);
 
