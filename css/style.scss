@@ -114,12 +114,16 @@ body {
           button {
             width: 20px;
             height: 20px;
-            color: red;
-            background: none;
-            border: 2px solid red;
-            border-radius: 20px;
+            color: white;
+            background: white;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Klee One', cursive;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
         }
 
@@ -128,6 +132,15 @@ body {
 
           div {
             background-color: $gray-color;
+
+            button {
+              color: rgba(0, 0, 0, 0.7);
+              background-color: rgba(255, 255, 255, 0.5);
+            }
+
+            button:hover {
+              background-color: rgba(255, 255, 255, 0.3);
+            }
           }
         }
       }
