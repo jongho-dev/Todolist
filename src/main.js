@@ -56,4 +56,9 @@ function load() {
   }
 }
 
+// 드래그 앱 드롭 이벤트
+let x = 0;
+let y = 0;
+
+// 초기 시작
 load();
