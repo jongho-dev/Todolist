@@ -18,7 +18,7 @@ submitBtn.addEventListener('click', () => {
     });
 
     if (lst.length > 0) {
-      alert('중복입니다.');
+      alert('중복되는 내용이 있습니다.');
     } else {
       createItem(todoInput.value, 'todo');
     }
