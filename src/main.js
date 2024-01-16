@@ -13,7 +13,8 @@ submitBtn.addEventListener('click', () => {
   if (todoInput.value.trim() == '') {
     alert('할 일을 입력해주세요.');
   } else {
-    const lst = listItems.filter((item) => {
+    const totalItems = listItems.concat(ingItems).concat(doneItems);
+    const lst = totalItems.filter((item) => {
       return item.text.trim() == todoInput.value.trim();
     });
 
