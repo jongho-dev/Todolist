@@ -86,79 +86,87 @@ function createItem(text, cate) {
 }
 
 // 드래그 앱 드롭 이벤트
-// const todoArea = document.getElementById('todo');
-// const ingArea = document.getElementById('ing');
-// const doneArea = document.getElementById('done');
-// let startarea;
-// let lastarea;
-// let startItems;
-// let targetItems;
+const todoArea = document.getElementById('todo');
+const ingArea = document.getElementById('ing');
+const doneArea = document.getElementById('done');
+let dragstart;
+let dragfinish;
+let startitems;
+let finishitems;
+let startstorage;
+let finishstorage;
 
-// function dragStart(e) {
-//   startarea = e.target;
-//   if (startarea.id == 'todo') {
-//     startItems = listItems;
-//     targetItems = listItems;
-//   } else if (startarea.id == 'ing') {
-//     startItems = ingItems;
-//     targetItems = ingItems;
-//   } else if (startarea.id == 'done') {
-//     startItems = doneItems;
-//     targetItems = doneItems;
-//   }
-// }
+function Dragstart(e) {
+  dragstart = e.target;
+  const which = e.target.parentNode.id;
+  if (which == 'todo-list') {
+    startitems = listItems;
+    startstorage = 'todo';
+  } else if (which == 'ing-list') {
+    startitems = ingItems;
+    startstorage = 'ing';
+  } else {
+    startitems = doneItems;
+    startstorage = 'done';
+  }
+}
 
-// function dragOver(e) {
-//   e.preventDefault();
-//   lastarea = e.target;
-//   console.log(lastarea.id);
-//   if (lastarea.id == 'todo') {
-//     targetItems = listItems;
-//   } else if (lastarea.id == 'ing') {
-//     targetItems = ingItems;
-//   } else if (lastarea.id == 'done') {
-//     targetItems = doneItems;
-//   }
-// }
+function Dragover(e) {
+  e.preventDefault();
+}
 
-// function Drop(e) {
-//   filterItem = startItems.filter((data) => {
-//     return data['id'] == startarea.id;
-//   });
-//   targetItems.push(filterItem[0]);
-//   localStorage.setItem('ing', JSON.stringify(ingItems));
+function Drop(e) {
+  function changelist(startlist, finishlist, startstorage, finishstorage) {
+    const moveitem = startlist.filter(function (item) {
+      return item.text == dragstart.firstChild.innerHTML;
+    });
+    startlist = startlist.filter(function (item) {
+      return item.text != dragstart.firstChild.innerHTML;
+    });
+    finishlist.push(moveitem[0]);
+    localStorage.setItem(startstorage, JSON.stringify(startlist));
+    localStorage.setItem(finishstorage, JSON.stringify(finishlist));
+    location.reload(true);
+  }
 
-//   listItems = listItems.filter((data) => {
-//     return data['id'] != currentdrag.id;
-//   });
-//   localStorage.setItem('todo', JSON.stringify(listItems));
+  dragfinish = e.target;
+  const which = e.target.id;
+  if (which == 'todo') {
+    finishitems = listItems;
+    finishstorage = 'todo';
+  } else if (which == 'ing') {
+    finishitems = ingItems;
+    finishstorage = 'ing';
+  } else {
+    finishitems = doneItems;
+    finishstorage = 'done';
+  }
 
-//   location.reload(true);
-// }
+  if (
+    (dragstart.parentNode.parentNode.id != dragfinish.id) &
+    ['todo', 'ing', 'done'].includes(dragfinish.id)
+  ) {
+    changelist(startitems, finishitems, startstorage, finishstorage);
+  }
+}
 
-// todoArea.addEventListener('dragstart', dragStart);
-// ingArea.addEventListener('dragstart', dragStart);
-// doneArea.addEventListener('dragstart', dragStart);
+todoArea.addEventListener('dragstart', Dragstart);
+todoArea.addEventListener('dragover', Dragover);
+todoArea.addEventListener('drop', Drop);
 
-// todoArea.addEventListener('dragover', dragOver);
-// ingArea.addEventListener('dragover', dragOver);
-// doneArea.addEventListener('dragover', dragOver);
+ingArea.addEventListener('dragstart', Dragstart);
+ingArea.addEventListener('dragover', Dragover);
+ingArea.addEventListener('drop', Drop);
 
-// todoArea.addEventListener('drop', Drop);
-// ingArea.addEventListener('drop', Drop);
-// doneArea.addEventListener('drop', Drop);
+doneArea.addEventListener('dragstart', Dragstart);
+doneArea.addEventListener('dragover', Dragover);
+doneArea.addEventListener('drop', Drop);
 
 // 초기 로딩
 function load() {
-  // todoList.replaceChildren();
-  // ingList.replaceChildren();
-  // doneList.replaceChildren();
   let loadedTodos = localStorage.getItem('todo');
   let loadedIngs = localStorage.getItem('ing');
   let loadedDones = localStorage.getItem('done');
-  console.log(loadedIngs);
-  console.log(loadedIngs);
-  console.log(loadedDones);
   if (loadedTodos == null) {
     loadedTodos = [];
   } else {
@@ -168,7 +176,7 @@ function load() {
     });
   }
 
-  if (loadedIngs == null) {
+  if ((loadedIngs == null) | (loadedIngs == '')) {
     loadedIngs = [];
   } else {
     const parsedIngs = JSON.parse(loadedIngs);
