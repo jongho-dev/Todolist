@@ -96,7 +96,7 @@ body {
           margin: 5px 0 0 0;
           background-color: white;
           color: black;
-          border: 1px solid rgba(200, 200, 200, 0.6);
+          border: 2px solid white;
           border-radius: 8px;
           display: flex;
           flex-direction: column;
@@ -114,8 +114,8 @@ body {
           button {
             width: 20px;
             height: 20px;
-            color: white;
-            background: white;
+            color: rgba(0, 0, 0, 0);
+            background: none;
             border: none;
             border-radius: 4px;
             font-family: Arial, Helvetica, sans-serif;
@@ -126,10 +126,9 @@ body {
 
         li:hover {
           background-color: $gray-color;
+          border: 2px solid $gray-color;
 
           div {
-            background-color: $gray-color;
-
             button {
               color: rgba(0, 0, 0, 0.7);
               background-color: rgba(255, 255, 255, 0.5);

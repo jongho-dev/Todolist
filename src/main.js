@@ -79,12 +79,15 @@ function createItem(text, cate) {
   li.id = newId;
   li.addEventListener('click', () => {
     if (currentfocus != undefined) {
-      currentfocus.style.border = 'none';
+      currentfocus.style.border = '2px solid white';
+      currentfocus.style.backgroundColor = 'white';
     }
 
     currentfocus = li;
     currentfocus.style.border = '2px solid blue';
+    currentfocus.style.backgroundColor = 'rgb(233,242,255)';
   });
+
   area.appendChild(li);
 
   const obj = {
@@ -119,6 +122,12 @@ function Dragstart(e) {
     startitems = doneItems;
     startstorage = 'done';
   }
+  if (currentfocus != undefined) {
+    currentfocus.style.border = '2px solid white';
+    currentfocus.style.backgroundColor = 'white';
+  }
+  currentfocus = dragstart;
+  currentfocus.style.border = '2px solid blue';
 }
 
 function Dragover(e) {
