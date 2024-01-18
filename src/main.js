@@ -7,6 +7,7 @@ const doneList = document.getElementById('done-list');
 let listItems = [];
 let ingItems = [];
 let doneItems = [];
+let currentfocus;
 
 // input으로 item 추가
 submitBtn.addEventListener('click', () => {
@@ -76,6 +77,14 @@ function createItem(text, cate) {
   li.appendChild(div2);
   div2.appendChild(btn);
   li.id = newId;
+  li.addEventListener('click', () => {
+    if (currentfocus != undefined) {
+      currentfocus.style.border = 'none';
+    }
+
+    currentfocus = li;
+    currentfocus.style.border = '2px solid blue';
+  });
   area.appendChild(li);
 
   const obj = {
