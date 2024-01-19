@@ -128,6 +128,7 @@ function Dragstart(e) {
   }
   currentfocus = dragstart;
   currentfocus.style.border = '2px solid blue';
+  currentfocus.style.backgroundColor = 'rgb(233,242,255)';
 }
 
 function Dragover(e) {
